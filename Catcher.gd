@@ -1,8 +1,8 @@
 extends Area2D
 
+signal catch
 
-
-export var speed = 400
+export var speed = 700
 var screen_size = Vector2.ZERO
 
 func _ready():
@@ -24,3 +24,9 @@ func _process(delta):
 
 
 
+
+
+func _on_Catcher_body_entered(body):
+	print("catched")
+	body.queue_free()
+	emit_signal("catch")

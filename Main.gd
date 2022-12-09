@@ -2,8 +2,11 @@ extends Node
 
 export (PackedScene) var fruits_scene
 
+var score
+
 func _ready():
 	randomize()
+	score = 0
 
 func _on_Timer_timeout():
 	var fruit_spawn_location = $Path2D/FruitSpawnLocation
@@ -20,3 +23,12 @@ func _on_Timer_timeout():
 	
 	var velocity = Vector2(rand_range(fruits.min_speed, fruits.max_speed), 0)
 	fruits.linear_velocity = velocity.rotated(direction)
+
+func score():
+	pass
+
+
+
+func _on_Catcher_catch():
+	score += 1
+	print(score)

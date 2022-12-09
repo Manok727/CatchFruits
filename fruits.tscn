@@ -7,7 +7,6 @@
 radius = 54.037
 
 [node name="RigidBody2D" type="RigidBody2D" groups=["fruits"]]
-collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Fruit-orange" type="Sprite" parent="."]
