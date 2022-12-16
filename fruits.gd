@@ -10,17 +10,15 @@ var screen_size = Vector2.ZERO
 func _ready():
 	screen_size = get_viewport_rect().size
 	print(screen_size)
+	start()
 	
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-func start(new_position):
+func start():
 	show()
+	print("start")
 	$CollisionShape2D.disabled = false
 	position.x = clamp(position.x, 0, screen_size.x)
 
-func _on_RigidBody2D_body_entered(body):
-	self.queue_free()
-	$CollisionShape2D.set_deferred("disabled", true)
-	emit_signal("hit")
 
